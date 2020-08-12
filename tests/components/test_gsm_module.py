@@ -5,6 +5,7 @@ def test_at_command():
     mesg = 'AT\r\n'.encode('utf-8')
     port.write(mesg)
     resp = port.read(10)
+    resp = resp.decode("utf-8")
     OK = 'OK'
     OK_in_resp = resp.find(OK)
     assert OK_in_resp != -1
